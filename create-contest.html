@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Contest - Coding Battleground</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Create a New Contest</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ongoing-contests.html">Ongoing Contests</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="create-contest">
+        <h2>Submit Your Contest Details</h2>
+        <form id="contestForm">
+            <label for="name">Contest Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter contest name" required><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Describe your contest" required></textarea><br>
+
+            <label for="start-time">Start Time:</label>
+            <input type="datetime-local" id="start-time" name="start-time" required><br>
+
+            <label for="end-time">End Time:</label>
+            <input type="datetime-local" id="end-time" name="end-time" required><br>
+
+            <button type="submit">Create Contest</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Coding Battleground. All rights reserved.</p>
+    </footer>
+
+    <script src="create-contest.js"></script>
+</body>
+</html>

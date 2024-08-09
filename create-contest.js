@@ -1,27 +1,33 @@
-document.getElementById('contestForm').addEventListener('submit', function (event) {
+document.getElementById('contestForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const formData = new FormData(this);
-    const data = {
-        name: formData.get('name'),
-        description: formData.get('description'),
-        start_time: formData.get('start-time'),
-        end_time: formData.get('end-time'),
+    // Gather form data
+    const formData = {
+        name: document.getElementById('name').value,
+        description: document.getElementById('description').value,
+        startTime: document.getElementById('start-time').value,
+        endTime: document.getElementById('end-time').value
     };
 
-    fetch('/api/createContest', {
+    // Send form data to backend
+    fetch('/api/contests', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(formData)
     })
     .then(response => response.json())
     .then(data => {
-        alert('Contest created successfully!');
-        // Optionally redirect to another page or reset the form
+        if (data.success) {
+            alert('Contest Created Successfully!');
+            document.getElementById('contestForm').reset(); // Clear the form
+        } else {
+            alert('Failed to create contest. Please try again.');
+        }
     })
     .catch(error => {
-        console.error('Error creating contest:', error);
+        console.error('Error:', error);
+        alert('An error occurred. Please try again later.');
     });
 });
